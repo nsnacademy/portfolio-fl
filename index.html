@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Дмитрий - начинающий фронтенд-разработчик | Портфолио верстальщика
+    </title>
+    <meta
+      name="description"
+      content="Портфолио начинающего фронтенд-разработчика Дмитрия. Верстка на HTML5, CSS3 с БЭМ. Адаптивный дизайн и чистый код."
+    />
+    <meta
+      name="keywords"
+      content="верстальщик, фронтенд разработчик, HTML, CSS, БЭМ, адаптивная верстка"
+    />
+
+    <!-- Предзагрузка CSS -->
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preload" href="/css/reset.css" as="style" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+
+    
+    <!--Header-->
+    <header class="header" role="banner">
+      <div class="header__container container">
+        <a href="/" class="header__logo" aria-label="На главную">HCH</a>
+      
+        <div class="header__burger">
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+          <span class="header__burger-line"></span>
+        </div>
+      
+        <nav class="header__nav" aria-label="Основные разделы">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a href="#about" class="header__nav-link active" aria-current="page">
+                <span>Обо мне</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#projects" class="header__nav-link">
+                <span>Проекты</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#faq" class="header__nav-link">
+                <span>FAQ</span>
+              </a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#contacts" class="header__nav-link">
+                <span>Контакты</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    
+
+
+    <main class="main" role="main">
+      <div class="container">
+        <div id="about" class="content-wrapper">
+          <h1 class="title">Начинающий верстальщик (фронтенд-разработчик)</h1>
+
+          <div class="text-block">
+            <p>Привет, меня зовут Дмитрий, я активно набираюсь опыта в верстке, чтобы в будущем стать полноценным фронтенд-разработчиком. Этот сайт — мой первый проект, в котором я использую основные принципы верстки, включая адаптивность и методологию БЭМ. В дальнейшем планирую углубиться в работу с JavaScript и фреймворками.</p>
+          </div>
+          <a href="#" class="btn" aria-label="Посмотреть мои работы">Мои работы</a>
+        </div>
+      </div>
+
+
+
+      <div id="projects" class="portfolio-slider">
+        <!-- Кнопка назад -->
+        <button class="slider-arrow slider-prev" aria-label="Предыдущий проект">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <!-- Обертка для слайдов -->
+        <div class="slider-container">
+          <!-- Слайд 1 -->
+          <div class="slider-slide active">
+            <div class="first-project">
+              <div class="project-preview">
+                <div class="device-mockup">
+                  <h1 class="title-project">Вы сейчас находитесь на этом сайте</h1>
+                </div>
+              </div>
+              
+              <div class="project-details">
+                <h3>Мой первый проект: Лендинг портфолио</h3>
+                <div class="project-meta">
+                  <span><i class="far fa-calendar"></i> Март</span>
+                  <span><i class="far fa-clock"></i> 2 недели</span>
+                  <span><i class="fas fa-code"></i> 850 строк кода</span>
+                </div>
+                
+                <div class="project-features">
+                  <h4><i class="fas fa-star"></i> Ключевые преимущества:</h4>
+                  <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Идеальное отображение на всех устройствах</li>
+                    <li><i class="fas fa-check"></i> Удобный и интуитивный интерфейс</li>
+                    <li><i class="fas fa-check"></i> Быстрая загрузка страниц</li>
+                    <li><i class="fas fa-check"></i> Простая система управления контентом</li>
+                    <li><i class="fas fa-check"></i> Готовность к SEO-продвижению</li>
+                  </ul>
+                </div>
+                
+                <div class="project-tech">
+                  <h4>Использованные технологии:</h4>
+                  <div class="tech-list">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">Flexbox</span>
+                    <span class="tech-badge">BEM</span>
+                    <span class="tech-badge">Figma</span>
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">VS Code</span>
+                  </div>
+                </div>
+
+                <div class="project-actions">
+                  <a href="project-demo.html" class="demo-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Демо
+                  </a>
+                  <a href="https://github.com/ваш-логин/первый-проект" class="code-button">
+                    <i class="fab fa-github"></i> Исходный код
+                  </a>
+                  <button class="feedback-button js-feedback-trigger">
+                    <i class="fas fa-comment-dots"></i> Оставить отзыв
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Слайд 2 -->
+          <div class="slider-slide">
+              <div class="first-project" style="display: flex; align-items: center; justify-content: center; height: 400px; text-align: center;">
+                 <p style="font-size: 1.5rem; color: #7f8c8d;">Здесь будет второй проект<br><small>(в разработке)</small></p>
+              </div>
+          </div>
+
+        
+        <!-- Кнопка вперед -->
+        <button class="slider-arrow slider-next" aria-label="Следующий проект">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="slider-dots">
+          <button class="slider-dot active" aria-label="Показать проект 1"></button>
+          <button class="slider-dot" aria-label="Показать проект 2"></button>
+        </div>
+      </div>
+        
+    </main>
+
+
+
+
+  
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
