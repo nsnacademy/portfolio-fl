@@ -143,4 +143,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
+// Анимация просмотра процесса работы
+document.querySelectorAll('.step-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const step = button.closest('.process-step');
+    const isActive = step.classList.contains('active');
+    
+    document.querySelectorAll('.process-step.active').forEach(openStep => {
+      if (openStep !== step) {
+        openStep.classList.remove('active');
+        openStep.querySelector('.step-toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+    
+    step.classList.toggle('active', !isActive);
+    button.setAttribute('aria-expanded', String(!isActive));
+  });
+});

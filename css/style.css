@@ -898,7 +898,106 @@ html, body {
   }
 }
 
+/* Базовые стили */
+.process {
+  padding: 80px 0;
+  color: #333;
+}
 
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Стили шагов */
+.process-steps {
+  margin-top: 50px;
+}
+
+.process-step {
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  padding: 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.step-header:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+.step-number {
+  font-size: 1rem;
+  color: #888;
+  width: 40px;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.step-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-details {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 40px;
+  transition: max-height 0.2s ease, padding 0.3s ease;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Анимация открытия */
+.process-step.active .step-toggle {
+  transform: rotate(45deg);
+}
+
+.process-step.active .step-details {
+  max-height: 200px;
+  padding-bottom: 25px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .step-title {
+    font-size: 1.2rem;
+  }
+}
 
 /* Описание страниц */
 /*
@@ -908,7 +1007,8 @@ html, body {
   2. Обо мне (#about) - Детали о навыках и опыте работы
   3. Проекты (#projects) - Галерея выполненных работ с описанием
   4. Услуги (#pricing) - Тарифы и условия сотрудничества
-  5. Контакты (#contacts) - Способы связи и форма обратной связи
+  5.Процесс работы (№process) Выполнение работы 
+  6. Контакты (#contacts) - Способы связи и форма обратной связи
 
   Все страницы:
   - Полностью адаптивны
