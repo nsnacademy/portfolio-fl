@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,23 +31,25 @@
     />
   </head>
   <body>
-
-    
     <!--Header-->
     <header class="header" role="banner">
       <div class="header__container container">
         <a href="/" class="header__logo" aria-label="На главную">HCH</a>
-      
+
         <div class="header__burger">
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
           <span class="header__burger-line"></span>
         </div>
-      
+
         <nav class="header__nav" aria-label="Основные разделы">
           <ul class="header__nav-list">
             <li class="header__nav-item">
-              <a href="#about" class="header__nav-link active" aria-current="page">
+              <a
+                href="#about"
+                class="header__nav-link active"
+                aria-current="page"
+              >
                 <span>Обо мне</span>
               </a>
             </li>
@@ -57,8 +59,8 @@
               </a>
             </li>
             <li class="header__nav-item">
-              <a href="#faq" class="header__nav-link">
-                <span>FAQ</span>
+              <a href="#pricing" class="header__nav-link">
+                <span>Прайс лист</span>
               </a>
             </li>
             <li class="header__nav-item">
@@ -70,9 +72,6 @@
         </nav>
       </div>
     </header>
-    
-    
-
 
     <main class="main" role="main">
       <div class="container">
@@ -80,20 +79,26 @@
           <h1 class="title">Начинающий верстальщик (фронтенд-разработчик)</h1>
 
           <div class="text-block">
-            <p>Привет, меня зовут Дмитрий, я активно набираюсь опыта в верстке, чтобы в будущем стать полноценным фронтенд-разработчиком. Этот сайт — мой первый проект, в котором я использую основные принципы верстки, включая адаптивность и методологию БЭМ. В дальнейшем планирую углубиться в работу с JavaScript и фреймворками.</p>
+            <p>
+              Привет, меня зовут Дмитрий, я активно набираюсь опыта в верстке,
+              чтобы в будущем стать полноценным фронтенд-разработчиком. Этот
+              сайт — мой первый проект, в котором я использую основные принципы
+              верстки, включая адаптивность и методологию БЭМ. В дальнейшем
+              планирую углубиться в работу с JavaScript и фреймворками.
+            </p>
           </div>
-          <a href="#" class="btn" aria-label="Посмотреть мои работы">Мои работы</a>
+          <a href="#projects" class="btn" aria-label="Посмотреть мои работы"
+            >Мои работы</a
+          >
         </div>
       </div>
-
-
 
       <div id="projects" class="portfolio-slider">
         <!-- Кнопка назад -->
         <button class="slider-arrow slider-prev" aria-label="Предыдущий проект">
           <i class="fas fa-chevron-left"></i>
         </button>
-        
+
         <!-- Обертка для слайдов -->
         <div class="slider-container">
           <!-- Слайд 1 -->
@@ -101,10 +106,12 @@
             <div class="first-project">
               <div class="project-preview">
                 <div class="device-mockup">
-                  <h1 class="title-project">Вы сейчас находитесь на этом сайте</h1>
+                  <h1 class="title-project">
+                    Вы сейчас находитесь на этом сайте
+                  </h1>
                 </div>
               </div>
-              
+
               <div class="project-details">
                 <h3>Мой первый проект: Лендинг портфолио</h3>
                 <div class="project-meta">
@@ -112,18 +119,31 @@
                   <span><i class="far fa-clock"></i> 2 недели</span>
                   <span><i class="fas fa-code"></i> 850 строк кода</span>
                 </div>
-                
+
                 <div class="project-features">
                   <h4><i class="fas fa-star"></i> Ключевые преимущества:</h4>
                   <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Идеальное отображение на всех устройствах</li>
-                    <li><i class="fas fa-check"></i> Удобный и интуитивный интерфейс</li>
-                    <li><i class="fas fa-check"></i> Быстрая загрузка страниц</li>
-                    <li><i class="fas fa-check"></i> Простая система управления контентом</li>
-                    <li><i class="fas fa-check"></i> Готовность к SEO-продвижению</li>
+                    <li>
+                      <i class="fas fa-check"></i> Идеальное отображение на всех
+                      устройствах
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Удобный и интуитивный
+                      интерфейс
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Быстрая загрузка страниц
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Простая система управления
+                      контентом
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i> Готовность к SEO-продвижению
+                    </li>
                   </ul>
                 </div>
-                
+
                 <div class="project-tech">
                   <h4>Использованные технологии:</h4>
                   <div class="tech-list">
@@ -138,12 +158,19 @@
                 </div>
 
                 <div class="project-actions">
-                  <a href="project-demo.html" class="demo-button" target="_blank">
+                  <a
+                    href="project-demo.html"
+                    class="demo-button"
+                    target="_blank"
+                  >
                     <i class="fas fa-external-link-alt"></i> Демо
                   </a>
-                  <a href="https://github.com/ваш-логин/первый-проект" class="code-button">
-                    <i class="fab fa-github"></i> Исходный код
-                  </a>
+                  <a
+                    href="https://github.com/nsnacademy/portfolio-fl.git"
+                    class="code-button"
+                    target="_blank"
+                    >Код на GitHub</a
+                  >
                   <button class="feedback-button js-feedback-trigger">
                     <i class="fas fa-comment-dots"></i> Оставить отзыв
                   </button>
@@ -151,35 +178,146 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Слайд 2 -->
           <div class="slider-slide">
-              <div class="first-project" style="display: flex; align-items: center; justify-content: center; height: 400px; text-align: center;">
-                 <p style="font-size: 1.5rem; color: #7f8c8d;">Здесь будет второй проект<br><small>(в разработке)</small></p>
-              </div>
+            <div
+              class="first-project"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 400px;
+                text-align: center;
+              "
+            >
+              <p style="font-size: 1.5rem; color: #7f8c8d">
+                Здесь будет второй проект<br /><small>(в разработке)</small>
+              </p>
+            </div>
           </div>
 
-        
-        <!-- Кнопка вперед -->
-        <button class="slider-arrow slider-next" aria-label="Следующий проект">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+          <!-- Кнопка вперед -->
+          <button
+            class="slider-arrow slider-next"
+            aria-label="Следующий проект"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
 
-        <div class="slider-dots">
-          <button class="slider-dot active" aria-label="Показать проект 1"></button>
-          <button class="slider-dot" aria-label="Показать проект 2"></button>
+          <div class="slider-dots">
+            <button
+              class="slider-dot active"
+              aria-label="Показать проект 1"
+            ></button>
+            <button class="slider-dot" aria-label="Показать проект 2"></button>
+          </div>
         </div>
       </div>
-        
+
+
+
+      <!--Price list-->
+      <section id="pricing" class="pricing">
+        <div class="container">
+          <div class="pricing-intro">
+            <h2 class="section-headline">Прайс лист</h2>
+            <p class="section-subhead">Верстаю аккуратно, с вниманием к деталям — учусь и расту в каждом проекте</p>
+          </div>
+      
+          <div class="pricing-grid">
+            <!-- Card 1 -->
+            <div class="pricing-card">
+              <div class="card-content">
+                <h3 class="service-name">Лендинг</h3>
+                <div class="price">от 5 000 ₽</div>
+                <div class="divider"></div>
+                <ul class="features">
+                  <li>Адаптация под мобильные устройства</li>
+                  <li>Чистая HTML5/CSS3 разметка</li>
+                  <li>Скорость от 90 баллов по Lighthouse</li>
+                  <li>Работает во всех популярных браузерах</li>
+                  <li>Структурированный и понятный код</li>
+                  <li>2 недели поддержки после сдачи</li>
+                </ul>
+                <div class="additional-info">
+                  <p><strong>Срок выполнения:</strong> 3–5 рабочих дней</p>
+                  <p><strong>Необходимо:</strong> Макет в Figma или PSD</p>
+                </div>
+              </div>
+              <button class="cta-button">
+                <span>Заказать лендинг</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 6H11" stroke="currentColor" stroke-linecap="round"/>
+                  <path d="M6 1L11 6L6 11" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+      
+            <!-- Card 2 -->
+            <div class="pricing-card featured">
+              <div class="card-content">
+                <div class="popular-tag">Самый популярный</div>
+                <h3 class="service-name">Сайт-визитка</h3>
+                <div class="price">от 8 000 ₽</div>
+                <div class="divider"></div>
+                <ul class="features">
+                  <li>До 5 страниц разной структуры</li>
+                  <li>Базовые анимации и взаимодействия</li>
+                  <li>Начальная SEO-разметка</li>
+                  <li>Можно подключить CMS (если потребуется)</li>
+                  <li>Удобная навигация и адаптивное меню</li>
+                  <li>3 недели поддержки</li>
+                </ul>
+                <div class="additional-info">
+                  <p><strong>Срок выполнения:</strong> 5–7 рабочих дней</p>
+                  <p><strong>Дополнительно:</strong> Возможность подключения блога</p>
+                </div>
+              </div>
+              <button class="cta-button">
+                <span>Заказать сайт</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 6H11" stroke="currentColor" stroke-linecap="round"/>
+                  <path d="M6 1L11 6L6 11" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+      
+            <!-- Card 3 -->
+            <div class="pricing-card">
+              <div class="card-content">
+                <h3 class="service-name">Доработки</h3>
+                <div class="price">от 2 000 ₽</div>
+                <div class="divider"></div>
+                <ul class="features">
+                  <li>Проверка текущей вёрстки</li>
+                  <li>Исправление багов и багфиксы</li>
+                  <li>Добавление новых секций</li>
+                  <li>Улучшение отображения на устройствах</li>
+                  <li>Улучшение производительности</li>
+                  <li>1 неделя поддержки</li>
+                </ul>
+                <div class="additional-info">
+                  <p><strong>Срок выполнения:</strong> 1–3 рабочих дня</p>
+                  <p><strong>Минимальный заказ:</strong> от 2 часов</p>
+                </div>
+              </div>
+              <button class="cta-button">
+                <span>Обсудить доработки</span>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M1 6H11" stroke="currentColor" stroke-linecap="round"/>
+                  <path d="M6 1L11 6L6 11" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section> <!--/Price list-->
+      
+
     </main>
-
-
-
-
-  
-
 
     <script src="script.js"></script>
   </body>
 </html>
-
