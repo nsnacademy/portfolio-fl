@@ -617,7 +617,7 @@ html, body {
 
 /* Секция цен */
 .pricing {
-  padding: 120px 0;
+  padding: 80px 0;
   background: var(--light-color);
   color: var(--dark-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -639,7 +639,7 @@ html, body {
 
 .section-subhead {
   font-size: 1.1rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--secondary-text);
   max-width: 600px;
   margin: 0 auto;
@@ -715,31 +715,6 @@ html, body {
   margin: 24px 0;
 }
 
-.features {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 24px;
-}
-
-.features li {
-  position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
-  font-size: 17px;
-  color: var(--secondary-text);
-  line-height: 1.5;
-}
-
-.features li:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 10px;
-  width: 8px;
-  height: 8px;
-  background: var(--accent-color);
-  border-radius: 50%;
-}
 
 .additional-info {
   font-size: 15px;
@@ -900,21 +875,22 @@ html, body {
 
 /* Базовые стили */
 .process {
-  padding: 80px 0;
+  padding: 20px 0;
   color: #333;
 }
 
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--secondary-text);
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -961,7 +937,7 @@ html, body {
   font-size: 1.5rem;
   color: #888;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 1s ease;
   width: 40px;
   height: 40px;
   display: flex;
@@ -973,7 +949,7 @@ html, body {
   max-height: 0;
   overflow: hidden;
   padding: 0 40px;
-  transition: max-height 0.2s ease, padding 0.3s ease;
+  transition: max-height 0.6s ease, padding 0.6s ease;
   color: #555;
   line-height: 1.6;
 }
@@ -999,7 +975,277 @@ html, body {
   }
 }
 
-/* Описание страниц */
+
+
+
+
+/* Отзывы клиентов */
+.reviews {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.reviews__container {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews__title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-secondary, #666);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.reviews__empty {
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.reviews__empty-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2px;
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.02),
+    0 2px 4px rgba(0,0,0,0.02);
+  width: 100%;
+}
+
+.reviews__empty-content {
+  border: 1px dashed var(--border-color, #eaeaea);
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+.reviews__empty-icon {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--text-tertiary, #ddd);
+  margin-bottom: 1rem;
+}
+
+.reviews__empty-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #666);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.reviews__empty-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.reviews__empty-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-tertiary, #f0f0f0);
+}
+
+.reviews__empty-name {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  font-weight: 500;
+}
+
+.reviews__cta-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.reviews__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--light-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border-color, #eaeaea);
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  background: var(--accent-color);
+}
+
+.reviews__cta:hover {
+  background: rgba(5, 95, 238, 0.747);
+  
+  
+}
+
+.reviews__cta svg {
+  transition: transform 0.2s ease;
+}
+
+.reviews__cta:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 480px) {
+  .reviews {
+    padding: 3rem 1rem;
+  }
+  
+  .reviews__empty-content {
+    padding: 1.5rem;
+  }
+  
+  .reviews__cta {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+/* FAQ */
+.faq {
+  padding: 50px 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.faq__title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 45px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.faq__grid {
+  display: flex;
+  gap: 25px;
+}
+
+.faq__column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq__item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.faq__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.faq__question {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.faq__answer {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.faq__answer ul {
+  padding-left: 22px;
+  margin-top: 8px;
+}
+
+.faq__answer li {
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.faq__answer li::before {
+  content: "—";
+  position: absolute;
+  left: -15px;
+  color: #64748b;
+}
+
+.faq__answer strong {
+  color: #1e293b;
+}
+
+.faq__footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.05rem;
+  color: #475569;
+}
+
+.faq__link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.faq__link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .faq__grid {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .faq__title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .faq__item {
+    padding: 16px;
+  }
+}
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--light-color);
+  color:var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+}
+
+.back-to-top:hover {
+  transform: translateY(-5px);
+  background: #5b52d641;
+}
+
 /*
   Структура сайта:
 
@@ -1007,8 +1253,10 @@ html, body {
   2. Обо мне (#about) - Детали о навыках и опыте работы
   3. Проекты (#projects) - Галерея выполненных работ с описанием
   4. Услуги (#pricing) - Тарифы и условия сотрудничества
-  5.Процесс работы (№process) Выполнение работы 
-  6. Контакты (#contacts) - Способы связи и форма обратной связи
+  5. Процесс работы (№process) Как я делаю вёрстку
+  6. Отзывы (№reviews)  
+  7. FAQ (#faq) Ответы на вопросы 
+  8. Контакты (#contacts) - Способы связи и форма обратной связи
 
   Все страницы:
   - Полностью адаптивны

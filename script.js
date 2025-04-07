@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  window.addEventListener("scroll", setActiveLink);
+  window.addEventListener("scroll", () => requestAnimationFrame(setActiveLink));
+  setActiveLink(); 
 });
+
 
 
 
@@ -38,26 +40,21 @@ const hamb = document.querySelector(".header__burger");
 const popup = document.querySelector(".header__nav");
 const body = document.body;
 
-hamb.addEventListener("click", hambHandler);
-
-function hambHandler(e) {
+hamb.addEventListener("click", (e) => {
   e.preventDefault();
   popup.classList.toggle("active");
   hamb.classList.toggle("active");
   body.classList.toggle("no-scroll");
-}
-
-const links = Array.from(popup.querySelectorAll("a"));
-
-links.forEach((link) => {
-  link.addEventListener("click", closeOnClick);
 });
 
-function closeOnClick() {
-  popup.classList.remove("active");
-  hamb.classList.remove("active");
-  body.classList.remove("no-scroll");
-}
+popup.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    popup.classList.remove("active");
+    hamb.classList.remove("active");
+    body.classList.remove("no-scroll");
+  });
+});
+
 
 
 
@@ -71,76 +68,72 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.querySelector(".slider-next");
   let currentIndex = 0;
 
-  function updateSlider() {
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  if (slider && slides.length) {
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    dots.forEach((dot, index) => {
-      dot.classList.toggle("active", index === currentIndex);
-    });
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
 
-    if (currentIndex === 0) {
-      prevBtn.style.display = "none"; 
-    } else {
-      prevBtn.style.display = "flex"; 
+      prevBtn.style.display = currentIndex === 0 ? "none" : "flex";
+      nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "flex";
     }
 
-    if (currentIndex === slides.length - 1) {
-      nextBtn.style.display = "none"; 
-    } else {
-      nextBtn.style.display = "flex"; 
-    }
-  }
-
-  updateSlider();
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
     updateSlider();
-  });
 
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider();
-  });
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      currentIndex = index;
-      updateSlider();
-    });
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
+    nextBtn.addEventListener("click", () => {
       currentIndex = (currentIndex + 1) % slides.length;
       updateSlider();
-    } else if (e.key === "ArrowLeft") {
+    });
+
+    prevBtn.addEventListener("click", () => {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateSlider();
-    }
-  });
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        currentIndex = index;
+        updateSlider();
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+      } else if (e.key === "ArrowLeft") {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+      }
+    });
+  }
 });
+
 
 
 
 
 //Анимация появления элементов при скролле
 document.addEventListener("DOMContentLoaded", () => {
-  const animateOnScroll = () => {
-    const cards = document.querySelectorAll(".pricing-card");
-    cards.forEach((card) => {
-      const cardPosition = card.getBoundingClientRect().top;
+  const animateOnScroll = (selector = ".pricing-card") => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((element) => {
+      const elementPosition = element.getBoundingClientRect().top;
       const screenPosition = window.innerHeight / 1.2;
 
-      if (cardPosition < screenPosition) {
-        card.style.opacity = "1";
+      if (elementPosition < screenPosition) {
+        element.style.opacity = "1";
+        element.classList.add("visible");
       }
     });
   };
 
-  window.addEventListener("scroll", animateOnScroll);
+  window.addEventListener("scroll", () => animateOnScroll());
   animateOnScroll(); 
 });
+
 
 
 // Анимация просмотра процесса работы
@@ -160,3 +153,25 @@ document.querySelectorAll('.step-toggle').forEach(button => {
     button.setAttribute('aria-expanded', String(!isActive));
   });
 });
+
+
+const backToTopButton = document.getElementById('back-to-top');
+
+// Показываем кнопку при прокрутке
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('visible');
+  } else {
+    backToTopButton.classList.remove('visible');
+  }
+});
+
+// Плавный скролл вверх
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+
