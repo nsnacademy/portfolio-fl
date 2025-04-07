@@ -137,22 +137,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Анимация просмотра процесса работы
-document.querySelectorAll('.step-toggle').forEach(button => {
-  button.addEventListener('click', () => {
-    const step = button.closest('.process-step');
+document.querySelectorAll('.step-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const step = header.closest('.process-step');
     const isActive = step.classList.contains('active');
-    
+
     document.querySelectorAll('.process-step.active').forEach(openStep => {
       if (openStep !== step) {
         openStep.classList.remove('active');
         openStep.querySelector('.step-toggle').setAttribute('aria-expanded', 'false');
       }
     });
-    
+
     step.classList.toggle('active', !isActive);
-    button.setAttribute('aria-expanded', String(!isActive));
+    const toggleButton = step.querySelector('.step-toggle');
+    toggleButton.setAttribute('aria-expanded', String(!isActive));
   });
 });
+
 
 
 const backToTopButton = document.getElementById('back-to-top');
@@ -173,5 +175,13 @@ backToTopButton.addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+
+
+
+const toggleBtn = document.getElementById('themeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-theme');
+  });
 
 
