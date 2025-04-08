@@ -269,6 +269,7 @@ html, body {
 }
 
 .text-block {
+  font-family: 'Ubuntu Sans', sans-serif;
   margin-bottom: 1.3rem;
   max-width: 700px;
   line-height: 1.6;
