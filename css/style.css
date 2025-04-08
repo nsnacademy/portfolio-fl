@@ -1429,14 +1429,14 @@ html, body {
 }
 
 .telegram-icon {
-  background-color:#fbfbfd;
+  background-color: #fbfbfd;
 }
 
 .github-icon {
-  background-color:#fbfbfd;;
+  background-color: #fbfbfd;
 }
 
-.contact-icon svg {
+.contact-icon-img {
   width: 24px;
   height: 24px;
 }
@@ -1466,8 +1466,6 @@ html, body {
   color: var(--secondary-text);
   margin: 0;
 }
-
-
 
 .contacts-footer {
   display: flex;
@@ -1505,7 +1503,6 @@ html, body {
 
 
 
-/* Футер */
 /* Общие стили футера */
 footer {
  
