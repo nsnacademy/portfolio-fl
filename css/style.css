@@ -1047,7 +1047,7 @@ html, body {
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .section-subtitle {
@@ -1211,7 +1211,7 @@ html, body {
   }
 
   .reviews__title {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .reviews__empty-content {
@@ -1328,7 +1328,7 @@ html, body {
   }
   
   .faq__title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 30px;
   }
   
@@ -1388,7 +1388,7 @@ html, body {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 15px;
   color: var(--dark-color);
 }
