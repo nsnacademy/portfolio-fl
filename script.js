@@ -1,33 +1,38 @@
 // Отслеживание активного раздела при прокрутке страницы (плавное выделение активной ссылки в навигации)
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = Array.from(document.querySelectorAll("section"));
-  const navLinks = Array.from(document.querySelectorAll(".header__nav-link"));
-  
-  let currentSection = null;
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".header__nav-link");
 
-  const setActiveLink = () => {
-    const scrollY = window.scrollY;
-    let activeSection = null;
+  function setActiveLink() {
+    let currentSection = "";
 
-    for (const section of sections) {
-      const { offsetTop, clientHeight, id } = section;
-      if (scrollY >= offsetTop - 100 && scrollY < offsetTop + clientHeight) {
-        activeSection = id;
-        break;
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.clientHeight;
+
+      if (
+        window.scrollY >= sectionTop &&
+        window.scrollY < sectionTop + sectionHeight
+      ) {
+        currentSection = section.getAttribute("id");
       }
-    }
+    });
 
-    if (activeSection !== currentSection) {
-      currentSection = activeSection;
-      navLinks.forEach(link => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${currentSection}`);
-      });
-    }
-  };
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  }
 
   window.addEventListener("scroll", () => requestAnimationFrame(setActiveLink));
-  setActiveLink();
+  setActiveLink(); 
 });
+
+
+
 
 
 // Меню-бургер (открытие и закрытие при клике)
@@ -42,87 +47,96 @@ hamb.addEventListener("click", (e) => {
   body.classList.toggle("no-scroll");
 });
 
-popup.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
+popup.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
     popup.classList.remove("active");
     hamb.classList.remove("active");
     body.classList.remove("no-scroll");
+  });
+});
+
+
+
+
+
+//Слайдер (переключение слайдов с кнопками и точками):
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".slider-container");
+  const slides = document.querySelectorAll(".slider-slide");
+  const dots = document.querySelectorAll(".slider-dot");
+  const prevBtn = document.querySelector(".slider-prev");
+  const nextBtn = document.querySelector(".slider-next");
+  let currentIndex = 0;
+
+  if (slider && slides.length) {
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+
+      prevBtn.style.display = currentIndex === 0 ? "none" : "flex";
+      nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "flex";
+    }
+
+    updateSlider();
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        currentIndex = index;
+        updateSlider();
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+      } else if (e.key === "ArrowLeft") {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+      }
+    });
   }
 });
 
 
 
-// Слайдер (переключение слайдов с кнопками и точками)
+
+
+//Анимация появления элементов при скролле
 document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.querySelector(".slider-container");
-  const slides = Array.from(document.querySelectorAll(".slider-slide"));
-  const dots = Array.from(document.querySelectorAll(".slider-dot"));
-  const prevBtn = document.querySelector(".slider-prev");
-  const nextBtn = document.querySelector(".slider-next");
-  let currentIndex = 0;
+  const animateOnScroll = (selector = ".pricing-card") => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((element) => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.2;
 
-  const updateSlider = () => {
-    const transformValue = `translateX(-${currentIndex * 100}%)`;
-    slider.style.transform = transformValue;
-    dots.forEach((dot, index) => dot.classList.toggle("active", index === currentIndex));
-    prevBtn.style.display = currentIndex === 0 ? "none" : "flex";
-    nextBtn.style.display = currentIndex === slides.length - 1 ? "none" : "flex";
-  };
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlider();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlider();
-  });
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      currentIndex = index;
-      updateSlider();
-    });
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlider();
-    } else if (e.key === "ArrowLeft") {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateSlider();
-    }
-  });
-
-  updateSlider();
-});
-
-
-
-// Анимация появления элементов при скролле
-document.addEventListener("DOMContentLoaded", () => {
-  const animateOnScroll = () => {
-    const elements = document.querySelectorAll(".pricing-card");
-    const screenPosition = window.innerHeight / 1.2;
-    
-    elements.forEach(element => {
-      const { top } = element.getBoundingClientRect();
-      if (top < screenPosition) {
+      if (elementPosition < screenPosition) {
         element.style.opacity = "1";
         element.classList.add("visible");
       }
     });
   };
 
-  window.addEventListener("scroll", () => requestAnimationFrame(animateOnScroll));
-  animateOnScroll();
+  window.addEventListener("scroll", () => animateOnScroll());
+  animateOnScroll(); 
 });
 
 
 
-// Анимация процесса работы
+// Анимация просмотра процесса работы
 document.querySelectorAll('.step-header').forEach(header => {
   header.addEventListener('click', () => {
     const step = header.closest('.process-step');
@@ -143,21 +157,33 @@ document.querySelectorAll('.step-header').forEach(header => {
 
 
 
-// Кнопка "Вернуться наверх"
 const backToTopButton = document.getElementById('back-to-top');
 
+// Показываем кнопку при прокрутке
 window.addEventListener('scroll', () => {
-  backToTopButton.classList.toggle('visible', window.pageYOffset > 300);
+  if (window.pageYOffset > 300) {
+    backToTopButton.classList.add('visible');
+  } else {
+    backToTopButton.classList.remove('visible');
+  }
 });
 
+// Плавный скролл вверх
 backToTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 
 
 
-// Переключение темы
+/* Переключение темы*/
 const toggleBtn = document.getElementById('themeToggle');
-toggleBtn.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark-theme');
-});
+  toggleBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-theme');
+  });
+
+
+
+
