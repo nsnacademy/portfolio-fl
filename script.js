@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
   let currentSection = null;
 
-  // Использование функции requestAnimationFrame для анимаций
   const setActiveLink = () => {
     const scrollY = window.scrollY;
     let activeSection = null;
@@ -26,10 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Использование requestAnimationFrame для уменьшения нагрузки на основной поток
   window.addEventListener("scroll", () => requestAnimationFrame(setActiveLink));
   setActiveLink();
 });
+
 
 // Меню-бургер (открытие и закрытие при клике)
 const hamb = document.querySelector(".header__burger");
@@ -43,7 +42,6 @@ hamb.addEventListener("click", (e) => {
   body.classList.toggle("no-scroll");
 });
 
-// Используем делегирование событий для ссылок внутри меню
 popup.addEventListener("click", (e) => {
   if (e.target.tagName === "A") {
     popup.classList.remove("active");
@@ -51,6 +49,8 @@ popup.addEventListener("click", (e) => {
     body.classList.remove("no-scroll");
   }
 });
+
+
 
 // Слайдер (переключение слайдов с кнопками и точками)
 document.addEventListener("DOMContentLoaded", () => {
@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSlider();
 });
 
+
+
 // Анимация появления элементов при скролле
 document.addEventListener("DOMContentLoaded", () => {
   const animateOnScroll = () => {
@@ -117,6 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => requestAnimationFrame(animateOnScroll));
   animateOnScroll();
 });
+
+
 
 // Анимация процесса работы
 document.querySelectorAll('.step-header').forEach(header => {
@@ -137,6 +141,8 @@ document.querySelectorAll('.step-header').forEach(header => {
   });
 });
 
+
+
 // Кнопка "Вернуться наверх"
 const backToTopButton = document.getElementById('back-to-top');
 
@@ -147,6 +153,8 @@ window.addEventListener('scroll', () => {
 backToTopButton.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+
 
 // Переключение темы
 const toggleBtn = document.getElementById('themeToggle');
