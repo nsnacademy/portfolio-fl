@@ -1,38 +1,27 @@
 // Отслеживание активного раздела при прокрутке страницы (плавное выделение активной ссылки в навигации)
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".header__nav-link");
 
   function setActiveLink() {
     let currentSection = "";
 
-    sections.forEach((section) => {
+    sections.forEach(section => {
       const sectionTop = section.offsetTop - 100;
       const sectionHeight = section.clientHeight;
-
-      if (
-        window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight
-      ) {
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
         currentSection = section.getAttribute("id");
       }
     });
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-
-      if (link.getAttribute("href") === `#${currentSection}`) {
-        link.classList.add("active");
-      }
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${currentSection}`);
     });
   }
 
   window.addEventListener("scroll", () => requestAnimationFrame(setActiveLink));
-  setActiveLink(); 
+  setActiveLink();
 });
-
-
-
 
 
 // Меню-бургер (открытие и закрытие при клике)
@@ -57,9 +46,7 @@ popup.querySelectorAll("a").forEach((link) => {
 
 
 
-
-
-//Слайдер (переключение слайдов с кнопками и точками):
+// Слайдер (переключение слайдов с кнопками и точками)
 document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".slider-container");
   const slides = document.querySelectorAll(".slider-slide");
@@ -100,11 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-      } else if (e.key === "ArrowLeft") {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        currentIndex = (currentIndex + (e.key === "ArrowRight" ? 1 : -1) + slides.length) % slides.length;
         updateSlider();
       }
     });
@@ -113,16 +97,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-//Анимация появления элементов при скролле
+// Анимация появления элементов при скролле
 document.addEventListener("DOMContentLoaded", () => {
   const animateOnScroll = (selector = ".pricing-card") => {
     const elements = document.querySelectorAll(selector);
     elements.forEach((element) => {
       const elementPosition = element.getBoundingClientRect().top;
       const screenPosition = window.innerHeight / 1.2;
-
       if (elementPosition < screenPosition) {
         element.style.opacity = "1";
         element.classList.add("visible");
@@ -130,13 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  window.addEventListener("scroll", () => animateOnScroll());
-  animateOnScroll(); 
+  window.addEventListener("scroll", () => requestAnimationFrame(() => animateOnScroll()));
+  animateOnScroll();
 });
 
 
 
-// Анимация просмотра процесса работы
+// Анимация процесса работы
 document.querySelectorAll('.step-header').forEach(header => {
   header.addEventListener('click', () => {
     const step = header.closest('.process-step');
@@ -157,33 +138,20 @@ document.querySelectorAll('.step-header').forEach(header => {
 
 
 
+// Кнопка "Вернуться наверх"
 const backToTopButton = document.getElementById('back-to-top');
 
-// Показываем кнопку при прокрутке
 window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 300) {
-    backToTopButton.classList.add('visible');
-  } else {
-    backToTopButton.classList.remove('visible');
-  }
+  backToTopButton.classList.toggle('visible', window.pageYOffset > 300);
 });
 
-// Плавный скролл вверх
 backToTopButton.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 
 
-/* Переключение темы*/
-const toggleBtn = document.getElementById('themeToggle');
-  toggleBtn.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark-theme');
-  });
-
-
-
-
+// Переключение темы
+document.getElementById('themeToggle').addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark-theme');
+});
