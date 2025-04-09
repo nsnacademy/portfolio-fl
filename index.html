@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       Дмитрий - начинающий фронтенд-разработчик | Портфолио верстальщика
@@ -19,8 +19,7 @@
     <link rel="preload" href="css/style.css" as="style" />
     <link rel="stylesheet" href="css/style.css" />
 
-    
-    
+    <link rel="preload" href="/fonts/ubuntu-sans.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Предварительная загрузка шрифта Font Awesome с атрибутом preload -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" type="text/css" crossorigin="anonymous">
@@ -36,7 +35,7 @@
   </head>
   <body>
     <!--Header-->
-    <header class="header" role="banner">
+    <header class="header">
       <div class="header__container container">
         <a href="/" class="header__logo" aria-label="На главную">HCH</a>
 
@@ -73,6 +72,7 @@
                 <span>Контакты</span>
               </a>
             </li>
+            <li>
             <button
               id="themeToggle"
               class="theme-toggle-button"
@@ -80,12 +80,13 @@
             >
               <img src="img/moon.svg" alt="Тема" class="theme-toggle-icon" />
             </button>
+          </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main class="main" role="main">
+    <main class="main">
       <div class="container">
         <div id="about" class="content-wrapper">
           <h1 class="title">Верстальщик (фронтенд-разработчик)</h1>
@@ -94,7 +95,7 @@
             <p>
               Привет, меня зовут Дмитрий, я активно набираюсь опыта в верстке.Этот
               сайт — мой первый проект, в котором я использую основные принципы
-              верстки, включая адаптивность и методологию.
+              верстки, включая адаптивность и методологию БЭМ.
             </p>
           </div>
           <a href="#projects" class="btn" aria-label="Посмотреть мои работы"

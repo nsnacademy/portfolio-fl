@@ -86,6 +86,7 @@ html, body {
 }
 
 /* Шапка страницы */
+/* ========== HEADER ========== */
 .header {
   padding-top: 1.5rem;
 }
@@ -241,13 +242,7 @@ html, body {
   }
 }
 
-
-
-
-
-
-
-/* Основной контент */
+/* ========== MAIN CONTENT ========== */
 .main {
   padding: 2rem 0;
 }
@@ -257,7 +252,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+
+  /* 🔄 Оптимизированная высота для мобилок */
+  min-height: calc(100dvh - 100px);
+
   text-align: center;
   padding: 2rem;
 }
@@ -269,13 +267,15 @@ html, body {
 }
 
 .text-block {
-  font-family: 'Ubuntu Sans', sans-serif;
+  font-family: 'Ubuntu Sans', system-ui, sans-serif;
   margin-bottom: 1.3rem;
   max-width: 700px;
   line-height: 1.6;
   padding: 0 1rem;
+  font-size: 1.1rem;
 }
 
+/* Кнопка */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.3rem;
@@ -290,19 +290,28 @@ html, body {
   background-color: #5a52d6;
 }
 
-/* Адаптивность */
+/* 🔕 Отключение анимаций для тех, кто предпочитает */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .header__nav-link,
+  .header__burger-line,
+  .theme-toggle-icon {
+    transition: none !important;
+  }
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
 @media (max-width: 768px) {
   .content-wrapper {
-    min-height: 70vh;
     padding: 1rem;
   }
 
   .title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+    font-size: 1.9rem;
   }
 
   .text-block {
+    font-size: 1rem;
     margin-bottom: 1.5rem;
     padding: 0 0.5rem;
   }
@@ -315,20 +324,21 @@ html, body {
 
 @media (max-width: 480px) {
   .title {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   .text-block {
-    font-size: 0.75rem;
+    font-size: 1rem;
     line-height: 1.5;
   }
 
   .btn {
-    width: 100%; 
-    max-width: 180px; 
+    width: 100%;
+    max-width: 180px;
     padding: 0.7rem;
   }
 }
+
 
 
 
